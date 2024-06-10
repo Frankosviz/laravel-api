@@ -1,0 +1,529 @@
+@use './partials/variables' as *;
+
+$fa-font-path: "../fonts/webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import '~bootstrap/scss/bootstrap';
+
+
+
+.f-d-header {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 200px;
+    width: calc(100% - 200px);
+    z-index: 3000;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    a {
+        color: $lightbrown;
+        font-size: 20px;
+    }
+
+    a:hover {
+        color: $green;
+    }
+}
+
+.f-d-li-unique {
+    color: $lightbrown;
+    font-size: 20px;
+}
+
+.f-d-edit-height {
+    height: 100vh;
+}
+
+
+
+.f-d-main {
+    /* flex-grow: 1; soluzione2: collegata al flex-schrink di #sidebar */
+    width: calc(100% - 200px);
+    height: 100vh;
+    background-color: $main;
+    background-image: url(../images/jumbotron.jpg);
+    background-size: cover;
+    padding-top: 80px;
+    overflow-y: auto;
+    color: white;
+}
+
+.padding {
+    padding-top: 80px;
+}
+
+.f-d-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background-color: $main;
+}
+
+.f-d-sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: $sidebar;
+    overflow: hidden;
+    padding: 20px;
+    /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
+}
+
+.f-d-nav-vertical {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: $green;
+        padding: 10px;
+
+        &:hover {
+            color: $lightbrown;
+        }
+    }
+    i {
+        color: $lightbrown;
+        cursor: pointer;
+        padding-right: 10px;
+    }
+}
+
+.f-d-end-sidebar {
+    padding: 10px;
+    height: 80px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.f-d-page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, $lightbrown, $green, $darkbrown);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient 3s ease-in-out infinite, move 2s ease-in-out infinite;
+}
+// Animazione titolo
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes move {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+// Animazione titolo
+
+.bounce-title {
+    display: inline-block; /* Necessario per usare transform */
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+// .f-d-jumbotron {
+//     width: 100%;
+//     height: 400px;
+//     background-image: url(../images/jumbotron.jpg);
+//     background-size: cover;
+//     background-position: top;
+//     background-repeat: no-repeat;
+// }
+
+
+// colors
+
+.green {
+    color: $green;
+
+    &:hover {
+        color: $lightbrown;
+    }
+}
+
+.lightbrown {
+    color: $lightbrown;
+}
+
+.bg-gray {
+    background-color: #1C2226;
+}
+
+.f-d-form-control {
+    background-color: #1C2226;
+    border: none;
+    color: $lightbrown;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.gradientColor {
+    background: linear-gradient(90deg, $lightbrown, $green, $darkbrown);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+// table
+
+.f-d-table {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+
+    border-collapse: collapse;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    background-color: #1C2226;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+/* Stile per le celle della tabella */
+th, td {
+    padding: 5px 5px;
+    border: 1px solid $lightbrown;
+    text-align: left;
+}
+
+/* Stile per l'intestazione della tabella */
+th {
+    background-color: $darkbrown;
+    color: $lightbrown;
+}
+
+/* Stile per le righe della tabella */
+tr:nth-child(even) {
+    background-color: $black;
+}
+
+/* Stile per l'effetto hover sulle righe */
+tr:hover {
+    background-color: $darkbrown;
+    cursor: pointer;
+}
+
+/* Stile per la prima colonna */
+td:first-child {
+    font-weight: bold;
+}
+
+// card
+
+// .f-d-card {
+//     width: 500px;
+//     height: 300px;
+//     background-color: $darkbrown;
+//     border-radius: 10px;
+//     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+//     overflow: hidden;
+//     padding: ;
+// }
+
+.f-d-firstFavProject {
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/firstimg.jpg);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.f-d-secondFavProject {
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/secondimg.jpg);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.f-d-thirdFavProject {
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/thirdimg.jpg);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.f-d-card {
+    width: 500px;
+    height: 300px;
+    background-color: $green;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+    color: black;
+    font-weight: normal;
+    border: 2px solid $lightbrown;
+}
+
+.f-d-card-register {
+    width: 500px;
+    height: 400px;
+    background-color: $green;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+    color: black;
+    font-weight: normal;
+    border: 2px solid $lightbrown;
+}
+
+.f-d-button {
+    background-color: $lightbrown;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.f-d-button-form-cancel-modal {
+    background-color: #1C2226;
+    border: none;
+    color: $green;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.f-d-button-form {
+    background-color: $green;
+    border: none;
+    color: #1C2226;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.f-d-button-form-cancel {
+    background-color: #1C2226;
+    border: none;
+    color: $green;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.f-d-button-form:hover {
+    background-color: $lightbrown;
+
+}
+
+.f-d-button-form:active {
+    animation: pulse 0.5s;
+}
+
+.f-d-button-form-cancel:hover {
+    background-color: $lightbrown;
+}
+
+.f-d-button-form-cancel:active {
+    animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.f-d-card-layer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightgray;
+}
+
+.f-d-main-first-container {
+    width: calc(70% - 20px);
+    height: calc(100vh - 300px);
+    margin: 10px;
+    padding: 10px;
+}
+
+.f-d-main-second-container {
+    width: calc(30% - 20px);
+    height: calc(100vh - 300px);
+    margin: 10px;
+    padding: 10px;
+}
+
+.f-d-editform-container {
+    width: calc(100% - 20px);
+    padding: 20px;
+}
+
+.f-d-transparent-layer {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+}
+
+.f-d-transparent-layer-edit {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+}
+
+// fontawesome searchbar
+
+#search-bar {
+    display: none;
+    position: absolute;
+    right: 30px;
+    padding: 5px;
+    border: 2px solid $lightbrown;
+    background-color: #1C2226;
+    color: $green;
+    font-weight: bold;
+    border-radius: 3px;
+    outline: none;
+}
+
+.f-d-bg-form {
+    padding: 5px;
+    border: 2px solid $lightbrown;
+    background-color: #1C2226;
+    color: $green;
+    font-weight: bold;
+    border-radius: 3px;
+    outline: none;
+}
+
+.search-container {
+    position: relative;
+}
+
+// Scrollbar
+
+::-webkit-scrollbar {
+    width: 12px; /* Larghezza della scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: black; /* Colore dello sfondo della scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: $lightbrown; /* Colore del pollice della scrollbar */
+    border-radius: 4px; /* Arrotondamento degli angoli */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Colore del pollice della scrollbar quando si passa sopra con il mouse */
+}
+
+
+.f-d-img {
+    width: 100%;
+    height: 550px;
+}
+
+.f-d-img-small {
+    width: 150px;
+    height: 150px;
+}
