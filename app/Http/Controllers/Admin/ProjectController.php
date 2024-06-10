@@ -45,7 +45,7 @@ class ProjectController extends Controller
         $form_data['slug'] = Project::generateSlug($form_data['title']);
         $form_data['user_id'] = Auth::id();
 
-        if ($request->hasFile('image_path')){
+        if ($request->hasFile('image_path')) {
             // $img_path = $request->file('image_path')->storeAs(
             //     'project_image',
             //     'f-d-image.png'
@@ -53,8 +53,10 @@ class ProjectController extends Controller
             $img_path = Storage::put('project_image', $request->image_path);
             // $form_data['image'] = $path;
             $form_data['image_path'] = $img_path;
+            $img_path = Storage::disk('public')->put('project_image', $request->image_path);
         }
         //dd($img_path);
+
 
         
         

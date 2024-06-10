@@ -18,8 +18,8 @@ return [
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
-
-    'allowed_origins' => ['*'],
+    // Cambiando in allowed origins la url vado a specificare che la chiamata api puo' accedere solo da questo dominio, altrimenti sarà quella default
+    'allowed_origins' => [env('APP_FRONTEND_URL', 'http://default.it')],
 
     'allowed_origins_patterns' => [],
 
