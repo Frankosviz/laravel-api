@@ -50,10 +50,10 @@ class ProjectController extends Controller
             //     'project_image',
             //     'f-d-image.png'
             // )
-            $img_path = Storage::put('project_image', $request->image_path);
+            $image_path = Storage::disk('public')->put('image_path', $request->image_path);
             // $form_data['image'] = $path;
-            $form_data['image_path'] = $img_path;
-            $img_path = Storage::disk('public')->put('project_image', $request->image_path);
+            $form_data['image_path'] = $image_path;
+            $image_path = Storage::disk('public')->put('image_path', $request->image_path);
         }
         //dd($img_path);
 

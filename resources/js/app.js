@@ -37,8 +37,9 @@ if (image) {
     });
 }
 
-const deleteButton = document.getElementById('delete-button');
+const deleteButton = document.getElementById('deleteButton');
 deleteButton.addEventListener('click', (e) => {
+    console.log(e);
     e.preventDefault();
     const modale = document.getElementById('exampleModal');
     const myModal = new bootstrap.Modal(modale);
