@@ -13,6 +13,7 @@
             @foreach ($types->projects as $project)
                 <a class="gradientColor fs-4" href="{{ route('admin.projects.show', $project) }}">|
                     {{ $project->title }} |</a>
+                    <img src="{{ asset('storage/' . $project->image_path) }}" alt="{{ $project->title }}">
             @endforeach
         </p>
     </div>

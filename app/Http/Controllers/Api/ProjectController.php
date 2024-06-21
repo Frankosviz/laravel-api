@@ -13,17 +13,30 @@ class ProjectController extends Controller
     {
         // Possiamo passare i dati al front end anche paginati
         // $projects = Project::paginate(3) | invece di | $projects = Project::all();
-        $projects = Project::all();
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Ok',
-            'results' => $projects
-        ], 200);
+        $projects = Project::with('type', 'technologies')->paginate(3);
+        if ($projects) {
+                return response()->json(
+                    [
+                        'status' => 'success',
+                        'message' => 'ok',
+                        'results' => $projects
+                    ],
+                    200
+                );
+            } else {
+                return response()->json(
+                    [
+                        'status' => 'error',
+                        'message' => 'error'
+                    ],
+                    400
+                );
+            }
     }
     // Possiamo passare anche lo slug invece dell'id
     public function show($slug)
     {
-        // Andiamo a passare tutti i dati del database relazionati al nostro frontend tramite il ->with()... Eager Loading e Lazy Loading (da studiare)
+        // Andiamo a passare tutti i dati del database relazionati al nostro frontend tramite il ->with()... Eager Loading e Lazy Loading (da studiare/rivedere)
         $project = Project::where('slug', $slug)->with('type', 'technologies')->first();
         if ($project) {
             return response()->json([

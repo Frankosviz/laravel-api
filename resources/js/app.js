@@ -38,8 +38,9 @@ if (image) {
 }
 
 const deleteButton = document.getElementById('deleteButton');
+
 deleteButton.addEventListener('click', (e) => {
-    console.log(e);
+    console.log('addEventListener');
     e.preventDefault();
     const modale = document.getElementById('exampleModal');
     const myModal = new bootstrap.Modal(modale);
