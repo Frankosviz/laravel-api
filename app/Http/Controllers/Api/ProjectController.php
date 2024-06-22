@@ -13,7 +13,7 @@ class ProjectController extends Controller
     {
         // Possiamo passare i dati al front end anche paginati
         // $projects = Project::paginate(3) | invece di | $projects = Project::all();
-        $projects = Project::with('type', 'technologies')->paginate(3);
+        $projects = Project::with('type', 'technologies')->paginate(8);
         if ($projects) {
                 return response()->json(
                     [
